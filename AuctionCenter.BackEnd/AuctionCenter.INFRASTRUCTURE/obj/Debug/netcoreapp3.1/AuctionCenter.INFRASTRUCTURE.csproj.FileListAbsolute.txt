@@ -10,6 +10,5 @@ C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\Aucti
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Debug\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.runtimeconfig.dev.json
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Debug\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.genruntimeconfig.cache
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Debug\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.pdb
-C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Debug\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.csproj.CoreCompileInputs.cache
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Debug\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.dll
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Debug\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.pdb

@@ -2,10 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AuctionCenter.CORE.AppServices;
+using AuctionCenter.CORE.InfrastructureCoupling;
+using AuctionCenter.INFRASTRUCTURE.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -31,6 +35,15 @@ namespace AuctionCenter.API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auction Center API", Version = "v1" });
             });
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IUserAppService), typeof(UserAppService));
+
+
+            services.AddDbContext<AuctionCenterDbContext>(options =>
+           options.UseSqlServer(Configuration.GetConnectionString("dbContextConfig")));
+
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

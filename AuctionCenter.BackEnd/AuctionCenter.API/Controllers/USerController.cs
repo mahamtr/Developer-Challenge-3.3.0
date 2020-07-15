@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using AuctionCenter.CORE.AppServices;
 using AuctionCenter.CORE.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -16,21 +17,28 @@ namespace AuctionCenter.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class USerController : ControllerBase
+    public class UserController : ControllerBase
     {
         private IConfiguration _config;
-        public USerController(IConfiguration config)
+        private IUserAppService _userAppService;
+
+        public UserController(IConfiguration config, IUserAppService userAppService)
         {
             _config = config;
+            _userAppService = userAppService;
         }
         [AllowAnonymous]
         [HttpPost]
         public IActionResult Register([FromBody]UserRequestInfo login)
         {
-            IActionResult response = Unauthorized();
-            String tokenString = GenerateJWT(login);
-            response = Ok(new { token = tokenString });
-            return response;
+            IActionResult response;
+            if (_userAppService.RegisterUser(login.Email, login.Password))
+            {
+                String tokenString = GenerateJWT(login);
+                response = Ok(new { token = tokenString });
+                return response;
+            }
+            return BadRequest();
         }
 
 
