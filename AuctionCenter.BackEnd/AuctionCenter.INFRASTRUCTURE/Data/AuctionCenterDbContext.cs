@@ -21,7 +21,7 @@ namespace AuctionCenter.INFRASTRUCTURE.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.ApplyAllConfigurationsFromCurrentAssembly();
-            modelBuilder.Entity<Users>().ToTable("Users");
+            modelBuilder.Entity<Users>().ToTable("Users").HasKey("Id");
 
         }
 

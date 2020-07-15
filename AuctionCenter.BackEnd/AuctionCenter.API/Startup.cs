@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuctionCenter.CORE.AppServices;
+using AuctionCenter.CORE.AppServices.HashingAppService;
 using AuctionCenter.CORE.InfrastructureCoupling;
 using AuctionCenter.INFRASTRUCTURE.Data;
+using AuctionCenter.INFRASTRUCTURE.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,7 +38,9 @@ namespace AuctionCenter.API
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auction Center API", Version = "v1" });
             });
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddScoped(typeof(IUserAppService), typeof(UserAppService));
+            services.AddScoped(typeof(IHashingAppService), typeof(HashingAppService));
 
 
             services.AddDbContext<AuctionCenterDbContext>(options =>

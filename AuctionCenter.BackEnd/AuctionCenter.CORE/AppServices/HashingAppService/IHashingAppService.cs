@@ -4,7 +4,8 @@ using System.Text;
 
 namespace AuctionCenter.CORE.AppServices.HashingAppService
 {
-    interface IHashingAppService
+    public interface IHashingAppService
     {
+        public string HashPassword(string password);
     }
 }
