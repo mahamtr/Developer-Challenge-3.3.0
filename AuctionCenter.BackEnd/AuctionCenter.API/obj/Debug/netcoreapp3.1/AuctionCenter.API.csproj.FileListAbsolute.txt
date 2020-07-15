@@ -102,5 +102,6 @@ C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\Aucti
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\obj\Debug\netcoreapp3.1\AuctionCenter.API.csproj.CoreCompileInputs.cache
-C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\obj\Debug\netcoreapp3.1\AuctionCenter.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\obj\Debug\netcoreapp3.1\AuctionCenter.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\AuctionCenter.CORE.dll
+C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\AuctionCenter.CORE.pdb
