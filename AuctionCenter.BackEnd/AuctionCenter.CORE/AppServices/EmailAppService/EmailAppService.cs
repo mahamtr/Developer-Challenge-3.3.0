@@ -15,17 +15,14 @@ namespace AuctionCenter.CORE.AppServices.EmailAppService
         {
             _config = config;
         }
-        private async void sendEmail()
+        private async void sendEmail(EmailAddress to, string subject, string plainTextContent,string htmlContent)
         {
-            var apiKey = Environment.GetEnvironmentVariable("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");
+            var apiKey = _config["email:apikey"];
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("test@example.com", "Example User");
-            var subject = "Sending with SendGrid is Fun";
-            var to = new EmailAddress("test@example.com", "Example User");
-            var plainTextContent = "and easy to do anywhere, even with C#";
-            var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
+            var from = new EmailAddress("maai.ham@catelsa.hn", "Maai Ham Auction Center");
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
+
         }
         public async void SendPurchase(string email)
         {
@@ -34,15 +31,11 @@ namespace AuctionCenter.CORE.AppServices.EmailAppService
 
         public async void SendWelcomeEmail(string email)
         {
-            var apiKey = _config["email:apikey"];
-            var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("noreply@AuctionCenter.com", "AuctionCenter");
-            var subject = "Sending with SendGrid is Fun";
+            var subject = "Welcome to Auction Center";
             var to = new EmailAddress(email);
-            var plainTextContent = "and easy to do anywhere, even with C#";
-            var htmlContent = "<strong>and easy to do anywhere, even with C#</strong>";
-            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
-            var response = await client.SendEmailAsync(msg);
+            var plainTextContent = "Hi " + email + " we are glad to have you in our new Auction Center App";
+            var htmlContent = "<strong>Hi " + email + " we are glad to have you in our new Auction Center App</strong>";
+            sendEmail(to, subject, plainTextContent, htmlContent);
         }
     }
 }
