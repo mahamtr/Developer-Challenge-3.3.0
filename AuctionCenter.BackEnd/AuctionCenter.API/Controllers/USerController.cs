@@ -16,16 +16,26 @@ namespace AuctionCenter.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthenticationController : ControllerBase
+    public class USerController : ControllerBase
     {
         private IConfiguration _config;
-
-        public AuthenticationController(IConfiguration config)
+        public USerController(IConfiguration config)
         {
             _config = config;
         }
         [AllowAnonymous]
         [HttpPost]
+        public IActionResult Register([FromBody]UserRequestInfo login)
+        {
+            IActionResult response = Unauthorized();
+            String tokenString = GenerateJWT(login);
+            response = Ok(new { token = tokenString });
+            return response;
+        }
+
+
+        [AllowAnonymous]
+        [HttpGet]
         public IActionResult Login([FromBody]UserRequestInfo login)
         {
             IActionResult response = Unauthorized();
@@ -40,7 +50,7 @@ namespace AuctionCenter.API.Controllers
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var header = new JwtHeader(credentials);
             var claims = new[] {
-            new Claim("userName",userInfo.Username),
+            new Claim("userName",userInfo.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
             var expiration = _config["JWT:ExpirationMins"];
