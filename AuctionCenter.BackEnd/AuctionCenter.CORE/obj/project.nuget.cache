@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "9TwmPuAYqAyJwm7yW/cvy106SXTyi5viY5q5coB7+VAHpMFZ9AhGwhny8XU0IRc8SjFdCPItIzORF+ZpRiZqNw==",
+  "dgSpecHash": "hKHJTOK8TBd4zsc3u0Vda2UVDAXVOVkPrRwifuElZblsxLlvOsXONIYRtYXoPw99Xe/axVbkU2yjdlNmnkVNog==",
   "success": true,
   "projectFilePath": "C:\\Users\\Maai Ham\\maai-dev\\Developer-Challenge-3.3.0\\AuctionCenter.BackEnd\\AuctionCenter.CORE\\AuctionCenter.CORE.csproj",
   "expectedPackageFiles": [
@@ -94,10 +94,12 @@
     "C:\\Users\\Maai Ham\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Maai Ham\\.nuget\\packages\\sendgrid\\9.18.0\\sendgrid.9.18.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.2\\sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
+    "C:\\Users\\Maai Ham\\.nuget\\packages\\starkbank-ecdsa\\1.2.0\\starkbank-ecdsa.1.2.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

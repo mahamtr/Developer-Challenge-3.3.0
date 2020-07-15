@@ -168,6 +168,8 @@ C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\Aucti
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\SendGrid.dll
+C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\bin\Debug\netcoreapp3.1\StarkbankEcdsa.dll
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\obj\Debug\netcoreapp3.1\AuctionCenter.API.csproj.CoreCompileInputs.cache
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\obj\Debug\netcoreapp3.1\AuctionCenter.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Maai Ham\maai-dev\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.API\obj\Debug\netcoreapp3.1\AuctionCenter.API.MvcApplicationPartsAssemblyInfo.cache

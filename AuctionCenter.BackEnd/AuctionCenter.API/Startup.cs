@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AuctionCenter.CORE.AppServices;
+using AuctionCenter.CORE.AppServices.EmailAppService;
 using AuctionCenter.CORE.AppServices.HashingAppService;
 using AuctionCenter.CORE.InfrastructureCoupling;
 using AuctionCenter.INFRASTRUCTURE.Data;
@@ -41,6 +42,7 @@ namespace AuctionCenter.API
             services.AddScoped(typeof(IUnitOfWork), typeof(UnitOfWork));
             services.AddScoped(typeof(IUserAppService), typeof(UserAppService));
             services.AddScoped(typeof(IHashingAppService), typeof(HashingAppService));
+            services.AddScoped(typeof(IEmailAppService), typeof(EmailAppService));
 
 
             services.AddDbContext<AuctionCenterDbContext>(options =>

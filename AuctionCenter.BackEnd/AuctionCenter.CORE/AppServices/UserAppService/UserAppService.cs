@@ -13,11 +13,13 @@ namespace AuctionCenter.CORE.AppServices
     {
         private IUnitOfWork _unitOfWork;
         private IHashingAppService _hashingAppService;
+        private IEmailAppService _emailAppService;
 
-        public UserAppService(IUnitOfWork unitOfWork, IHashingAppService hashingAppService)
+        public UserAppService(IUnitOfWork unitOfWork, IHashingAppService hashingAppService,IEmailAppService emailAppService)
         {
             _unitOfWork = unitOfWork;
             _hashingAppService = hashingAppService;
+            _emailAppService = emailAppService;
         }
  
         public bool RegisterUser(string email, string password)
@@ -35,6 +37,7 @@ namespace AuctionCenter.CORE.AppServices
                 };
                 _unitOfWork.Users.Add(newUser);
                 _unitOfWork.Commit();
+                _emailAppService.SendWelcomeEmail(email);
                 return true;
             }
             return false;

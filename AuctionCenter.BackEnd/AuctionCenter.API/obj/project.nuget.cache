@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "97DljP9SHCXUhSnFpZg4aBS4ByKJPsBSpaUvab5Gki1L8TRQurd+jtfSvq6E8r14EkMBhZBszUj0jCalwwHVCg==",
+  "dgSpecHash": "AhlRDp9SHnxMJcfrB+06UXRYMz0IlBxbibVbA6deVP9OmRivSJ79skFFiLa1lfCyEyFjaFEdlYa0Cxmsp0DW2A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Maai Ham\\maai-dev\\Developer-Challenge-3.3.0\\AuctionCenter.BackEnd\\AuctionCenter.API\\AuctionCenter.API.csproj",
   "expectedPackageFiles": [
@@ -80,11 +80,13 @@
     "C:\\Users\\Maai Ham\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
+    "C:\\Users\\Maai Ham\\.nuget\\packages\\sendgrid\\9.18.0\\sendgrid.9.18.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlite\\3.13.0\\sqlite.3.13.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.2\\sqlitepclraw.bundle_e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.core\\2.0.2\\sqlitepclraw.core.2.0.2.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.0.2\\sqlitepclraw.lib.e_sqlite3.2.0.2.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\sqlitepclraw.provider.dynamic_cdecl\\2.0.2\\sqlitepclraw.provider.dynamic_cdecl.2.0.2.nupkg.sha512",
+    "C:\\Users\\Maai Ham\\.nuget\\packages\\starkbank-ecdsa\\1.2.0\\starkbank-ecdsa.1.2.0.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\swashbuckle.aspnetcore\\5.5.1\\swashbuckle.aspnetcore.5.5.1.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.5.1\\swashbuckle.aspnetcore.swagger.5.5.1.nupkg.sha512",
     "C:\\Users\\Maai Ham\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.5.1\\swashbuckle.aspnetcore.swaggergen.5.5.1.nupkg.sha512",

@@ -11,6 +11,8 @@ namespace AuctionCenter.CORE.Entities
         [DataType(DataType.EmailAddress)]
         [EmailAddress]
         public string Email { get; set; }
+        [Required]
+        [StringLength(16, ErrorMessage = "The password must be between 8 and 16 chars long", MinimumLength = 8)]
         public string Password { get; set; }
     }
 }
