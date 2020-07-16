@@ -45,8 +45,8 @@ namespace AuctionCenter.API.Controllers
 
         [AllowAnonymous]
         [Route("login")]
-        [HttpGet]
-        public IActionResult Login([FromQuery]UserRequestInfo login)
+        [HttpPost]
+        public IActionResult Login([FromBody]UserRequestInfo login)
         {
             IActionResult response = Unauthorized();
             if (_userAppService.VerifyUser(login.Email, login.Password))

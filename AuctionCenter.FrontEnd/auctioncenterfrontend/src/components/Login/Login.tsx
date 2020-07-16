@@ -4,6 +4,7 @@ import { ILoginProps } from './ILoginProps';
 import styles from './Login.module.scss';
 import {  toast, ToastContainer } from 'react-toastify';
 import { FormControl, FormGroup, Form, Button, ButtonGroup, FormLabel, FormText, Jumbotron, Toast } from 'react-bootstrap';
+import { fetchClient } from '../../helpers/fetchClient';
 
 class Login extends React.Component<ILoginProps, ILoginState> {
   constructor(props: any) {
@@ -15,12 +16,19 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     };
   }
 
-  onHandleSignIn = () => {
+  onHandleSignIn = async () => {
     const { email, password } = this.state;
     if (email === "" || password === ""){
       toast.error("Please input email and password")
       return
     }
+    const request = {
+      email,
+      password
+    }
+    const response  = await fetchClient.httpPost("/api/User/login",request) 
+    console.log(response)
+
   }
 
   onHandleChangeEmail = (e: any) => {
