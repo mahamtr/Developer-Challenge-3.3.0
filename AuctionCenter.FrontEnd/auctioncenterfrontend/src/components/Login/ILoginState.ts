@@ -1,1 +1,5 @@
-export interface ILoginState {}
+export interface ILoginState {
+    email:string,
+    password:string,
+    isInputEmpty:boolean
+}
