@@ -23,7 +23,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
           <FormGroup >
             <FormLabel>Email address</FormLabel>
             <FormControl type="email" placeholder="Email" />
-            <FormText className="text-muted">
+            <FormText >
               We will send you information about your purchases to this email
     </FormText>
             <FormLabel>Password</FormLabel>

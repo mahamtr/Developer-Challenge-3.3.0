@@ -2,21 +2,25 @@
     width: 100%;
     max-width: 300px;
     padding: 15px;
-    margin: 50px auto 0;
+    margin: 50px auto auto;
     height: 100%;
+    color: white;
+    background-color: rgba($color: #000000, $alpha: 0.75);
+    border-radius: 5px;
 }
 
 .background {
     background: url("./login.jpg") repeat #181d25;
-    background-size: 100% 100%;
-
+    overflow: hidden;
+    background-size: cover;
+    min-height: 100vh;
 }
 
 .welcome {
     width: 100%;
     max-width: 300px;
     padding: 15px;
-    margin: 20px auto 0;
+    margin: 20px auto auto;
     height: 100%;
 }
 
