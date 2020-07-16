@@ -36,7 +36,7 @@ namespace AuctionCenter.API.Controllers
             if (_userAppService.RegisterUser(login.Email, login.Password))
             {
                 String tokenString = GenerateJWT(login);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString, expires = _config["JWT:ExpirationMins"] });
                 return response;
             }
             return BadRequest(new { errors = new { email = "Email Already Taken" } });
@@ -52,7 +52,7 @@ namespace AuctionCenter.API.Controllers
             if (_userAppService.VerifyUser(login.Email, login.Password))
             {
                 String tokenString = GenerateJWT(login);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString,expires= _config["JWT:ExpirationMins"] });
             }
             return response;
         }

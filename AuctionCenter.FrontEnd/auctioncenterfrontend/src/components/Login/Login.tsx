@@ -16,6 +16,10 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     };
   }
 
+  componentDidMount(){
+    document.cookie = "token=;expires=expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+  }
+
 
   onHandleSignIn = async () => {
     const { email, password } = this.state;
@@ -28,7 +32,6 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       password
     }
     const response  = await fetchClient.httpPost("/api/User/login",request)
-    debugger
     if(response.errors){
       for(const error in response.errors){
         toast.warn(`${response.errors[error]}`)
@@ -44,7 +47,9 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       return
     }
     if(response.token ){
-      this.props.setToken(response.token)
+      const tokenExpiration = new Date()
+      tokenExpiration.setMinutes(tokenExpiration.getMinutes()+Number(response.expires))
+      document.cookie = `token=${response.token};expires=${tokenExpiration.toUTCString()}`
       this.props.history.push('/SaleCenter')
       toast.success("Welcome")
     }
@@ -78,7 +83,10 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       return
     }
     if(response.token ){
-      this.props.setToken(response.token)
+      const tokenExpiration = new Date()
+      tokenExpiration.setMinutes(tokenExpiration.getMinutes()+Number(response.expires))
+      document.cookie = `token=${response.token};expires=${tokenExpiration.toUTCString()}`
+      this.props.history.push('/SaleCenter')
       toast.success("Welcome")
     }
 

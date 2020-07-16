@@ -9,10 +9,13 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
     this.state = {};
   }
 
+  get=( )=>{
+    return document.cookie
+  }
   public render(): JSX.Element {
     return (
       <div className={`${styles.saleCenter}`}>
-        <h3>{this.props.token}</h3>
+        <h3>{this.get()}</h3>
       </div>
     );
   }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/Login/Login';
@@ -7,18 +7,25 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
+
 function App() {
-  const [token, setToken] = useState()
+
+  function isTokenAtCookies (){
+    const cookies = document.cookie.split(';');
+    return cookies.some((cookie:any) => cookie.includes("token"));
+  };
+  
   return (
     <div className="App">
       <Router>
         <ToastContainer />
 
         <Switch>
-          <Route path="/" exact render={(props) => <Login setToken={setToken} token={token} {...props} />} />
+          <Route path="/" exact component={Login} />
           <Route path="/saleCenter" exact render={(props) =>{
-            if(token) return <SaleCenter token={token} {...props} />
-            return <Login setToken={setToken} token={token} {...props} />
+            if(isTokenAtCookies()) return <SaleCenter  {...props} />
+            return <Login {...props} />
           }}  />
           <Route path="/">
             <Redirect to="/" />
