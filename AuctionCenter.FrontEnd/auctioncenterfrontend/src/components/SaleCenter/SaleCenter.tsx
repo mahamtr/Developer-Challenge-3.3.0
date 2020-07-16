@@ -4,12 +4,15 @@ import { ISaleCenterProps } from './ISaleCenterProps';
 import styles from './SaleCenter.module.scss';
 import { Navbar, Nav, NavDropdown, Image } from 'react-bootstrap';
 import {cookieHelper} from '../../helpers/cookieHelper';
+import SaleItems from '../SaleItems/SaleItems';
 
 
 class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
   constructor(props:any) {
     super(props);
-    this.state = {};
+    this.state = {
+      selectedCategory:"",
+    };
   }
 
   componentDidMount(){
@@ -48,7 +51,12 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
       </Nav.Link>
     </Nav>
   </Navbar.Collapse>
-</Navbar>      
+</Navbar>   
+<div className={`${styles.container}`}>
+  <SaleItems/>
+</div>
+
+
 </div>
     );
   }

@@ -1,1 +1,3 @@
-export interface ISaleCenterState {}
+export interface ISaleCenterState {
+    selectedCategory:any
+}
