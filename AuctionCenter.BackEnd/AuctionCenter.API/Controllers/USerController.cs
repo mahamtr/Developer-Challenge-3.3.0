@@ -39,8 +39,8 @@ namespace AuctionCenter.API.Controllers
                 response = Ok(new { token = tokenString });
                 return response;
             }
-            return BadRequest("Email already Taken");
-        }
+            return BadRequest(new { errors = new { email = "Email Already Taken" } });
+           }
 
 
         [AllowAnonymous]

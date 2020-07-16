@@ -32,9 +32,58 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       for(const error in response.errors){
         toast.warn(`${response.errors[error]}`)
       }
+      this.clearPassword()
+      return
     } 
-    console.log(response)
+    if(response.status ===401){
+      toast.error(`Email or Password is incorrect`)
+      toast.info(`Try Sign Up if you do not have an account`)
+      this.clearPassword()
 
+      return
+    }
+    if(response.token ){
+      toast.success("Welcome")
+    }
+
+  }
+
+
+  onHandleSignUp = async () => {
+    const { email, password } = this.state;
+    if (email === "" || password === ""){
+      toast.error("Please input email and password")
+      return
+    }
+    const request = {
+      email,
+      password
+    }
+    const response  = await fetchClient.httpPost("/api/User/register",request)
+    debugger
+    if(response.errors){
+      for(const error in response.errors){
+        toast.warn(`${response.errors[error]}`)
+      }
+      this.clearPassword()
+
+      return
+    } 
+    if(response.status ===401){
+      toast.error(`Email or Password is incorrect`)
+      this.clearPassword()
+      return
+    }
+    if(response.token ){
+      toast.success("Welcome")
+    }
+
+  }
+
+  clearPassword(){
+    this.setState({
+      password:"",
+    })
   }
 
   onHandleChangeEmail = (e: any) => {
@@ -51,7 +100,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
 
 
   public render(): JSX.Element {
-    const {isInputEmpty} = this.state;
+    const {password,email} = this.state;
     return (
       <div className={`${styles.background}`}>
 
@@ -63,17 +112,17 @@ class Login extends React.Component<ILoginProps, ILoginState> {
 
               <FormGroup >
                 <FormLabel>Email address</FormLabel>
-                <FormControl type="email" placeholder="Email" onChange={this.onHandleChangeEmail} />
+                <FormControl type="email" placeholder="Email" value={email} onChange={this.onHandleChangeEmail} />
                 <FormText >
                   We will send you information about your purchases to this email
     </FormText>
                 <FormLabel>Password</FormLabel>
-                <FormControl type="password" placeholder="Password" onChange={this.onHandleChangePassword} />
+                <FormControl type="password" placeholder="Password" value={password} onChange={this.onHandleChangePassword} />
               </FormGroup>
 
               <ButtonGroup className="mb-2">
                 <Button onClick={this.onHandleSignIn} >Sign-In</Button>
-                <Button >Sign-Up</Button>
+                <Button onClick={this.onHandleSignUp} >Sign-Up</Button>
               </ButtonGroup>
             </div>
 
