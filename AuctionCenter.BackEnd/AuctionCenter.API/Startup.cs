@@ -33,6 +33,12 @@ namespace AuctionCenter.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options => options.AddPolicy("allowCORS",
+     builder => builder.AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowAnyMethod()
+                       .AllowAnyOrigin()));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
@@ -55,6 +61,8 @@ namespace AuctionCenter.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("allowCORS");
+
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
