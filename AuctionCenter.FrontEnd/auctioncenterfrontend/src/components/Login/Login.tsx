@@ -50,6 +50,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       const tokenExpiration = new Date()
       tokenExpiration.setMinutes(tokenExpiration.getMinutes()+Number(response.expires))
       document.cookie = `token=${response.token};expires=${tokenExpiration.toUTCString()}`
+      document.cookie = `email=${email};expires=${tokenExpiration.toUTCString()}`
       this.props.history.push('/SaleCenter')
       toast.success("Welcome")
     }
