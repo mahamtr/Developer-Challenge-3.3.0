@@ -1,3 +1,23 @@
 .login {
-  display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    margin: 50px auto 0;
+    height: 100%;
 }
+
+.background {
+    background: url("./login.jpg") repeat #181d25;
+    background-size: 100% 100%;
+
+}
+
+.welcome {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    margin: 20px auto 0;
+    height: 100%;
+}
+
+
