@@ -1,1 +1,5 @@
-export interface ILoginProps {}
+export interface ILoginProps {
+    token:any,
+    setToken:any,
+    history:any
+}
