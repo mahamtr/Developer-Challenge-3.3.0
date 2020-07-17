@@ -11,7 +11,7 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
   constructor(props:any) {
     super(props);
     this.state = {
-      selectedCategory:"All Categories",
+      selectedCategory:"all categories",
     };
   }
 
@@ -22,7 +22,7 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
   handleClick = (event:any) =>{
     const newCat = event.target.innerText;
     this.setState({
-      selectedCategory: newCat ==="New" || newCat == "Used" ? newCat : "All Categories"
+      selectedCategory: newCat ==="New" || newCat === "Used" ? newCat : "all categories"
       })
   }
  

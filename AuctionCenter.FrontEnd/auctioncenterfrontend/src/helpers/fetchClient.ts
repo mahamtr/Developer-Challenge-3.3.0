@@ -24,9 +24,10 @@ class fetchClient {
   };
 
   static async httpGetWithAuth(url: string, request: any) {
-    return fetch(`${this.apiUrl}${url}`, {
+    var requestURL = new URL(this.apiUrl+url);
+    requestURL.search = new URLSearchParams(request).toString();
+    return fetch(requestURL.href, {
       method: 'GET',
-      // body: JSON.stringify(request), // data can be `string` or {object}!
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${cookieHelper.getCookie("token")}`

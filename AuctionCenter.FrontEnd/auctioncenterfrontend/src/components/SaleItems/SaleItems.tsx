@@ -15,19 +15,31 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
 
   componentDidUpdate(prevProps: any, PrevState: any) {
     const { selectedCategory } = this.props
-    if (prevProps.selectedCategory != selectedCategory) {
+    if (prevProps.selectedCategory !== selectedCategory) {
 
-      if (selectedCategory === "All Categories") {
+      if (selectedCategory === "all categories") {
         this.fetchItems()
         return
       }
-
+      this.fetchFilteredItem()
 
     }
   }
 
   componentDidMount() {
     this.fetchItems()
+  }
+
+  fetchFilteredItem = async() =>{
+    const request = {
+      category:this.props.selectedCategory
+    }
+    const response = await fetchClient.httpGetWithAuth('/api/SaleItems/getByCategory', request);
+    if (response) {
+      this.setState({
+        items: response
+      })
+    }
   }
 
   fetchItems = async () => {
@@ -42,9 +54,9 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
 
   renderItems = (items: any) => {
     if (items.length > 0)
-      return items.map((i: any) =>
+      return items.map((i: any,index:any) =>
         (
-          <Card className={`${styles.item}`}>
+          <Card className={`${styles.item}`} key={`${index}${i.itemName}`}>
             <Row>
               <Col>
                 <Card.Img className={`${styles.item}`} variant="top" src={`data:image/jpeg;base64,${i.image}`} width={150} height={150} />
@@ -60,7 +72,10 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
             <Col className={`${styles.action}`}>
               <Button variant="primary">Add to Cart</Button>
               <Card.Text>
-                Price: ${i.price}
+                Price: {i.price.toLocaleString('en-US', {
+  style: 'currency',
+  currency: 'USD',
+})}
               </Card.Text>
              </Col>
               </Row>
