@@ -34,7 +34,7 @@ namespace AuctionCenter.CORE.AppServices.CheckoutAppService
                     saleLogs.Add(saleLog);
                 }
                 _emailAppService.SendPurchaseEmail(email.Trim(), items);
-                //_unitOfWork.SaleItems.RemoveRange(items);
+                _unitOfWork.SaleItems.RemoveRange(items);
                 _unitOfWork.SaleLogs.AddRange(saleLogs);
                 _unitOfWork.Commit();
 
