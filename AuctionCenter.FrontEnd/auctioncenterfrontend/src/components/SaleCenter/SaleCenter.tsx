@@ -69,7 +69,7 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
     this.setState({
       itemsInCart:[]
     })
-    debugger;
+    toast.success("Order place throught, we've sent you an email");
   }
 
   getItemToRender = () => {

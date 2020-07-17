@@ -31,29 +31,36 @@ namespace AuctionCenter.CORE.AppServices.EmailAppService
         }
         public async void SendPurchaseEmail(string email,List<SaleItems> items)
         {
-            var subject = "Thanks for your purchase";
+            var subject = "Thanks for your purchase, the following items will be shipped to you:";
             var plainTextContent = "Hi " + email + " we are glad about your purchase";
             var htmlContent = "<strong>Hi " + email + " we are glad about your purchase</strong>";
             var itemNumer = 1;
             var to = new EmailAddress(email);
             foreach (var item in items)
             {
-                HttpClient client = await GetAdressInfoByZipCode(item);
-                plainTextContent += ("\n Item #" + itemNumer + " : " + item.ItemName + " ships from zipcode " + item.ZipCode.ToString());
-                htmlContent += "<br/><p>Item #" + itemNumer + " : " + item.ItemName + " ships from zipcode " + item.ZipCode.ToString() + "</p>";
+                var address = await GetAddressByZipCode(item);
+                var city = address.places.FirstOrDefault().PlaceName;
+                var country = address.Country;
+                var lat = address.places.FirstOrDefault().latitude;
+                var lon = address.places.FirstOrDefault().longitude;
+
+                plainTextContent += $"\n Item #{itemNumer} : {item.ItemName} ships from {city},{country},{item.ZipCode} with coordinates lat:{lat} lon:{lon}";
+                htmlContent += $"<br/><p>Item #{itemNumer} : {item.ItemName} ships from {city},{country},{item.ZipCode} with coordinates lat:{lat} lon:{lon}</p>";
                 itemNumer += 1;
             }
             sendEmail(to, subject, plainTextContent, htmlContent);
 
         }
 
-        private static async Task<HttpClient> GetAdressInfoByZipCode(SaleItems item)
+        private static async Task<ZipToAddressResponse> GetAddressByZipCode(SaleItems item)
         {
-            var client = new HttpClient();
-            var response = await client.GetAsync("http://api.zippopotam.us/us/" + item.ZipCode);
-            string responseBody = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<object>(responseBody);
-            return client;
+            using (var client = new HttpClient())
+            {
+                var response = await client.GetAsync("http://api.zippopotam.us/us/" + item.ZipCode);
+                string responseBody = await response.Content.ReadAsStringAsync();
+                var result = JsonConvert.DeserializeObject<ZipToAddressResponse>(responseBody);
+                return result;
+            }
         }
 
         public async void SendWelcomeEmail(string email)
