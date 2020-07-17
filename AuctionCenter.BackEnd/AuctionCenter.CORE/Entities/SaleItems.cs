@@ -12,5 +12,7 @@ namespace AuctionCenter.CORE.Entities
         public decimal Price { get; set; }
         public int ZipCode{ get; set; }
         public string Image { get; set; }
+        public string ItemName { get; set; }
+
     }
 }

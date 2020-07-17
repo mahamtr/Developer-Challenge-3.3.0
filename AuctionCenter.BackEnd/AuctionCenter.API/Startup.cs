@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AuctionCenter.CORE.AppServices;
 using AuctionCenter.CORE.AppServices.EmailAppService;
 using AuctionCenter.CORE.AppServices.HashingAppService;
+using AuctionCenter.CORE.AppServices.SaleItemsAppService;
 using AuctionCenter.CORE.InfrastructureCoupling;
 using AuctionCenter.INFRASTRUCTURE.Data;
 using AuctionCenter.INFRASTRUCTURE.UnitOfWork;
@@ -42,7 +43,6 @@ namespace AuctionCenter.API
                        .AllowAnyMethod()
                        .AllowAnyOrigin()));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Auction Center API", Version = "v1" });
@@ -67,7 +67,9 @@ namespace AuctionCenter.API
             services.AddScoped(typeof(IUserAppService), typeof(UserAppService));
             services.AddScoped(typeof(IHashingAppService), typeof(HashingAppService));
             services.AddScoped(typeof(IEmailAppService), typeof(EmailAppService));
+            services.AddScoped(typeof(ISaleItemsAppService), typeof(SaleItemsAppService));
 
+            services.AddControllers();
 
             services.AddDbContext<AuctionCenterDbContext>(options =>
            options.UseSqlServer(Configuration.GetConnectionString("dbContextConfig")));
@@ -95,7 +97,7 @@ namespace AuctionCenter.API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

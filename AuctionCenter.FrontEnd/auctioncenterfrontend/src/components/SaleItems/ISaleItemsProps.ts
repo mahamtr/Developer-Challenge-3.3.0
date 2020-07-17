@@ -1,1 +1,3 @@
-export interface ISaleItemsProps {}
+export interface ISaleItemsProps {
+    selectedCategory:any
+}

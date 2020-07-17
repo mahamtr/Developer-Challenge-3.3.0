@@ -18,6 +18,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
 
   componentDidMount(){
     document.cookie = "token=;expires=expires=Thu, 01 Jan 1970 00:00:00 GMT;";
+    document.cookie = "email=;expires=expires=Thu, 01 Jan 1970 00:00:00 GMT;";
   }
 
 
@@ -48,7 +49,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     }
     if(response.token ){
       const tokenExpiration = new Date()
-      tokenExpiration.setMinutes(tokenExpiration.getMinutes()+Number(response.expires))
+      tokenExpiration.setMinutes(tokenExpiration.getMinutes()+(Number(response.expires) - 5))
       document.cookie = `token=${response.token};expires=${tokenExpiration.toUTCString()}`
       document.cookie = `email=${email};expires=${tokenExpiration.toUTCString()}`
       this.props.history.push('/SaleCenter')

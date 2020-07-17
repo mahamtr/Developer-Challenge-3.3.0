@@ -11,15 +11,23 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
   constructor(props:any) {
     super(props);
     this.state = {
-      selectedCategory:"",
+      selectedCategory:"All Categories",
     };
   }
 
   componentDidMount(){
 
   }
+
+  handleClick = (event:any) =>{
+    const newCat = event.target.innerText;
+    this.setState({
+      selectedCategory: newCat ==="New" || newCat == "Used" ? newCat : "All Categories"
+      })
+  }
  
   public render(): JSX.Element {
+const {selectedCategory} = this.state;
     return (
       <div className={`${styles.saleCenter}`}>
 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
@@ -32,11 +40,10 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
     <Nav className="mr-auto">
       <Nav.Link href="myCart">My Cart</Nav.Link>
       <NavDropdown title="Categories" id="collasible-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Used</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Brand New</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Auction</NavDropdown.Item>
+        <NavDropdown.Item onClick={this.handleClick} >Used</NavDropdown.Item>
+        <NavDropdown.Item onClick={this.handleClick}>New</NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">All Categories</NavDropdown.Item>
+        <NavDropdown.Item onClick={this.handleClick} >All Categories</NavDropdown.Item>
       </NavDropdown>
     </Nav>
     <Nav>
@@ -53,7 +60,7 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
   </Navbar.Collapse>
 </Navbar>   
 <div className={`${styles.container}`}>
-  <SaleItems/>
+  <SaleItems selectedCategory={selectedCategory}/>
 </div>
 
 

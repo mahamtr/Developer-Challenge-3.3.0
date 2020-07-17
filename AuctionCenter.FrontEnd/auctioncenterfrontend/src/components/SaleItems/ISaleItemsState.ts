@@ -1,1 +1,3 @@
-export interface ISaleItemsState {}
+export interface ISaleItemsState {
+    items:any
+}
