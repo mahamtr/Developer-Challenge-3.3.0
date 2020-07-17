@@ -9,6 +9,7 @@ namespace AuctionCenter.CORE.InfrastructureCoupling
     {
         IRepository<Users> Users { get; }
         IRepository<SaleItems> SaleItems{ get; }
+        IRepository<SaleLogs> SaleLogs { get; }
 
 
         int Commit();

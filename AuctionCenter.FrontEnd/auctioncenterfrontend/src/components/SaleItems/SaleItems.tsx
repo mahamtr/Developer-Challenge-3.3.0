@@ -33,9 +33,9 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
 
 
 
-  fetchFilteredItem = async() =>{
+  fetchFilteredItem = async () => {
     const request = {
-      category:this.props.selectedCategory
+      category: this.props.selectedCategory
     }
     const response = await fetchClient.httpGetWithAuth('/api/SaleItems/getByCategory', request);
     if (response) {
@@ -55,9 +55,9 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
     }
   }
 
-  handleAddToCart= (item:any) => {
-    const {handleAddCartItem} = this.props;
-    if(handleAddCartItem){
+  handleAddToCart = (item: any) => {
+    const { handleAddCartItem } = this.props;
+    if (handleAddCartItem) {
       handleAddCartItem(item);
     }
 
@@ -65,7 +65,7 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
 
   renderItems = (items: any) => {
     if (items.length > 0)
-      return items.map((i: any,index:any) =>
+      return items.map((i: any, index: any) =>
         (
           <Card className={`${styles.item}`} key={`${index}${i.itemName}`}>
             <Row>
@@ -73,23 +73,23 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
                 <Card.Img className={`${styles.item}`} variant="top" src={`data:image/jpeg;base64,${i.image}`} width={150} height={150} />
               </Col>
               <Col xs={4}>
-              <Card.Body  >
-                <Card.Title>{i.itemName}</Card.Title>
+                <Card.Body  >
+                  <Card.Title>{i.itemName}</Card.Title>
+                  <Card.Text>
+                    {i.description}
+                  </Card.Text>
+                </Card.Body>
+              </Col>
+              <Col className={`${styles.action}`}>
+                <Button variant="primary" onClick={() => this.handleAddToCart(i)}>Add to Cart</Button>
                 <Card.Text>
-                  {i.description}
+                  Price: {i.price.toLocaleString('en-US', {
+                  style: 'currency',
+                  currency: 'USD',
+                })}
                 </Card.Text>
-              </Card.Body>
-            </Col>
-            <Col className={`${styles.action}`}>
-              <Button variant="primary" onClick={()=> this.handleAddToCart(i)}>Add to Cart</Button>
-              <Card.Text>
-                Price: {i.price.toLocaleString('en-US', {
-  style: 'currency',
-  currency: 'USD',
-})}
-              </Card.Text>
-             </Col>
-              </Row>
+              </Col>
+            </Row>
 
           </Card>))
 

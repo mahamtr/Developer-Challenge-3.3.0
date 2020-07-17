@@ -77,7 +77,7 @@ class Cart extends React.Component<ICartProps, ICartState> {
                 </Row>
               </FormGroup>
 
-                <Button>CheckOut</Button>
+                <Button onClick={this.props.onCheckOutHandle}>CheckOut</Button>
             </div>
 
           </Form>

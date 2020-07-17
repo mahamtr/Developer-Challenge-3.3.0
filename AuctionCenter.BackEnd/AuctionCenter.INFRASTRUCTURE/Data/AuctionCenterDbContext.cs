@@ -15,6 +15,8 @@ namespace AuctionCenter.INFRASTRUCTURE.Data
         }
 
         public DbSet<Users> Users { get; set; }
+        public DbSet<SaleItems> SaleItems { get; set; }
+        public DbSet<SaleLogs> SaleLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +25,7 @@ namespace AuctionCenter.INFRASTRUCTURE.Data
             modelBuilder.ApplyAllConfigurationsFromCurrentAssembly();
             modelBuilder.Entity<Users>().ToTable("Users").HasKey("Id");
             modelBuilder.Entity<SaleItems>().ToTable("SaleItems").HasKey("Id");
+            modelBuilder.Entity<SaleLogs>().ToTable("SaleLogs").HasKey("Id");
 
         }
 

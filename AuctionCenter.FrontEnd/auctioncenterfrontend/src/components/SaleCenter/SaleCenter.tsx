@@ -59,12 +59,22 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
   }  
 
 
+  onCheckOutHandle= ()=>{
+    debugger
+  }
+
   getItemToRender = () => {
     const { isCartSelected, selectedCategory,itemsInCart } = this.state;
     if (isCartSelected)
-      return <Cart itemsInCart={itemsInCart} handleRemoveItem={this.handleRemoveItem} />
+      return <Cart itemsInCart={itemsInCart} 
+      handleRemoveItem={this.handleRemoveItem} 
+      onCheckOutHandle={this.onCheckOutHandle}
+       />
 
-    return <SaleItems handleAddCartItem={this.handleAddCartItem} selectedCategory={selectedCategory} />
+    return <SaleItems 
+    handleAddCartItem={this.handleAddCartItem} 
+    selectedCategory={selectedCategory} 
+    />
 
   }
 
