@@ -9,6 +9,9 @@ class Cart extends React.Component<ICartProps, ICartState> {
     this.state = {};
   }
 
+  componentDidMount(){
+  }
+
   public render(): JSX.Element {
     return (
       <div className={`${styles.cart}`}>

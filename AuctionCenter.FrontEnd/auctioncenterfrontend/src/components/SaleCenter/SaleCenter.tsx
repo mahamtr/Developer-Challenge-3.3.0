@@ -37,14 +37,14 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
 
   handleAddCartItem = (item:any) =>{
     const {itemsInCart} = this.state;
-    debugger
     if(itemsInCart.some((i:any)=> i.id === item.id)){
       toast.warn(`${item.itemName} is already added in your cart`)
       return
     }
-    this.state.itemsInCart.push(item)
+    this.setState({
+      itemsInCart : [item,...itemsInCart]
+    })
     toast.success(`${item.itemName} added to your cart`)
-
   } 
   getItemToRender = () => {
     const { isCartSelected, selectedCategory,itemsInCart } = this.state;
