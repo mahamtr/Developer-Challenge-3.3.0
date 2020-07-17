@@ -14,7 +14,7 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
     super(props);
     this.state = {
       selectedCategory: "all categories",
-      isCartSelected: false,
+      isCartSelected: true,
       itemsInCart:[]
     };
   }

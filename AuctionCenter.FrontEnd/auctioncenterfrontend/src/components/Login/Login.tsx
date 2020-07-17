@@ -70,7 +70,6 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       password
     }
     const response  = await fetchClient.httpPost("/api/User/register",request)
-    debugger
     if(response.errors){
       for(const error in response.errors){
         toast.warn(`${response.errors[error]}`)
