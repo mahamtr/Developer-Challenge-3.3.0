@@ -45,11 +45,24 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
       itemsInCart : [item,...itemsInCart]
     })
     toast.success(`${item.itemName} added to your cart`)
-  } 
+  }
+
+  handleRemoveItem = (item:any) =>{
+    const {itemsInCart} = this.state;
+    if(itemsInCart.some((i:any)=> i.id === item.id)){
+      itemsInCart.splice(itemsInCart.indexOf(item), 1 );
+      this.setState({
+        itemsInCart :itemsInCart
+      })
+      return
+    }
+  }  
+
+
   getItemToRender = () => {
     const { isCartSelected, selectedCategory,itemsInCart } = this.state;
     if (isCartSelected)
-      return <Cart itemsInCart={itemsInCart} />
+      return <Cart itemsInCart={itemsInCart} handleRemoveItem={this.handleRemoveItem} />
 
     return <SaleItems handleAddCartItem={this.handleAddCartItem} selectedCategory={selectedCategory} />
 

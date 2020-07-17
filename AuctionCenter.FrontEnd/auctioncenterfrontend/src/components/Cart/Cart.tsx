@@ -24,7 +24,7 @@ class Cart extends React.Component<ICartProps, ICartState> {
   currency: 'USD',
 })}</td>
   <td>
-  <Button>Remove</Button>
+  <Button onClick={()=> this.props.handleRemoveItem(i)}>Remove</Button>
     </td>
 
   </tr>) 
