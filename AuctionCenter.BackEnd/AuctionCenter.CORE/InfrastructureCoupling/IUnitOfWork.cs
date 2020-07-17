@@ -8,6 +8,7 @@ namespace AuctionCenter.CORE.InfrastructureCoupling
     public interface IUnitOfWork : IDisposable
     {
         IRepository<Users> Users { get; }
+        IRepository<SaleItems> SaleItems{ get; }
 
 
         int Commit();

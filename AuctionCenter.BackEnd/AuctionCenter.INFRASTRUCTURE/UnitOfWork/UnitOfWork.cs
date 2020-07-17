@@ -10,6 +10,7 @@ namespace AuctionCenter.INFRASTRUCTURE.UnitOfWork
     public class UnitOfWork : IUnitOfWork
     {
         public IRepository<Users> Users { get; private set; }
+        public IRepository<SaleItems> SaleItems { get; private set; }
 
         private readonly AuctionCenterDbContext _context;
 
@@ -18,6 +19,7 @@ namespace AuctionCenter.INFRASTRUCTURE.UnitOfWork
         {
             _context = context;
             Users = new Repository<Users>(context);
+            SaleItems = new Repository<SaleItems>(context);
         }
 
         public int Commit()

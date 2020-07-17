@@ -22,6 +22,7 @@ namespace AuctionCenter.INFRASTRUCTURE.Data
 
             modelBuilder.ApplyAllConfigurationsFromCurrentAssembly();
             modelBuilder.Entity<Users>().ToTable("Users").HasKey("Id");
+            modelBuilder.Entity<SaleItems>().ToTable("SaleItems").HasKey("Id");
 
         }
 
