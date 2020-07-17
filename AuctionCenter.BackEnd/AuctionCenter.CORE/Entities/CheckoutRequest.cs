@@ -7,7 +7,8 @@ namespace AuctionCenter.CORE.Entities
     public class CheckoutRequest
     {
         public List<SaleItems> Items { get; set; }
-        
+        public string Email { get; set; }
+
     }
 
 }

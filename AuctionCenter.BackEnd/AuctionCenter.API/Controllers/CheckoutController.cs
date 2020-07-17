@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using AuctionCenter.CORE.AppServices.CheckoutAppService;
 using AuctionCenter.CORE.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -13,16 +15,19 @@ namespace AuctionCenter.API.Controllers
     [ApiController]
     public class CheckoutController : ControllerBase
     {
-        public CheckoutController()
-        {
+        private ICheckoutAppService _checkOutAppService;
 
+        public CheckoutController(ICheckoutAppService checkoutAppService)
+        {
+            _checkOutAppService = checkoutAppService;
         }
 
         [Authorize]
         [HttpPost]
         public IActionResult GetAll([FromBody]CheckoutRequest request)
         {
-            return Ok();
+        
+            return Ok(_checkOutAppService.Checkout(request.Email,request.Items));
         }
     }
 }

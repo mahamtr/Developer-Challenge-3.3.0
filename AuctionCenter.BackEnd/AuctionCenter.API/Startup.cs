@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AuctionCenter.CORE.AppServices;
+using AuctionCenter.CORE.AppServices.CheckoutAppService;
 using AuctionCenter.CORE.AppServices.EmailAppService;
 using AuctionCenter.CORE.AppServices.HashingAppService;
 using AuctionCenter.CORE.AppServices.SaleItemsAppService;
@@ -68,6 +69,7 @@ namespace AuctionCenter.API
             services.AddScoped(typeof(IHashingAppService), typeof(HashingAppService));
             services.AddScoped(typeof(IEmailAppService), typeof(EmailAppService));
             services.AddScoped(typeof(ISaleItemsAppService), typeof(SaleItemsAppService));
+            services.AddScoped(typeof(ICheckoutAppService), typeof(CheckoutAppService));
 
             services.AddControllers();
 

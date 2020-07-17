@@ -63,7 +63,6 @@ namespace AuctionCenter.API.Controllers
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
         var header = new JwtHeader(credentials);
         var claims = new[] {
-            new Claim("email",userInfo.Email),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
         var expiration = _config["JWT:ExpirationMins"];

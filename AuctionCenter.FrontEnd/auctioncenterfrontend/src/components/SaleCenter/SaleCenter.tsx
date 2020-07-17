@@ -3,10 +3,11 @@ import { ISaleCenterState } from './ISaleCenterState';
 import { ISaleCenterProps } from './ISaleCenterProps';
 import styles from './SaleCenter.module.scss';
 import { Navbar, Nav, NavDropdown, Image, Badge } from 'react-bootstrap';
-import { cookieHelper } from '../../helpers/cookieHelper';
 import SaleItems from '../SaleItems/SaleItems';
 import Cart from '../Cart/Cart';
 import { toast } from 'react-toastify';
+import { fetchClient } from '../../helpers/fetchClient';
+import { cookieHelper } from "../../helpers/cookieHelper";
 
 
 class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
@@ -59,8 +60,16 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
   }  
 
 
-  onCheckOutHandle= ()=>{
-    debugger
+  onCheckOutHandle= async ()=>{
+    const request ={
+      items:this.state.itemsInCart,
+      email:cookieHelper.getCookie("email")
+    }
+    const response = await fetchClient.httpPostWithAuth('/api/checkout',request);
+    this.setState({
+      itemsInCart:[]
+    })
+    debugger;
   }
 
   getItemToRender = () => {
