@@ -4,6 +4,7 @@ import { ISaleItemsProps } from './ISaleItemsProps';
 import styles from './SaleItems.module.scss';
 import { fetchClient } from '../../helpers/fetchClient';
 import { Card, Button, Row, Col } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
   constructor(props: any) {
@@ -30,6 +31,8 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
     this.fetchItems()
   }
 
+
+
   fetchFilteredItem = async() =>{
     const request = {
       category:this.props.selectedCategory
@@ -52,6 +55,14 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
     }
   }
 
+  handleAddToCart= (item:any) => {
+    const {handleAddCartItem} = this.props;
+    if(handleAddCartItem){
+      handleAddCartItem(item);
+    }
+
+  }
+
   renderItems = (items: any) => {
     if (items.length > 0)
       return items.map((i: any,index:any) =>
@@ -70,7 +81,7 @@ class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
               </Card.Body>
             </Col>
             <Col className={`${styles.action}`}>
-              <Button variant="primary">Add to Cart</Button>
+              <Button variant="primary" onClick={()=> this.handleAddToCart(i)}>Add to Cart</Button>
               <Card.Text>
                 Price: {i.price.toLocaleString('en-US', {
   style: 'currency',

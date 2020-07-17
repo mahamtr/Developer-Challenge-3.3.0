@@ -27,6 +27,8 @@ function App() {
             if(isTokenAtCookies()) return <SaleCenter  {...props} />
             return <Login {...props} />
           }}  />
+
+
           <Route path="/">
             <Redirect to="/" />
           </Route>
