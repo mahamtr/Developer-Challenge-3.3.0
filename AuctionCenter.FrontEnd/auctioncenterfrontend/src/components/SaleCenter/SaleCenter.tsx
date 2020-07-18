@@ -15,7 +15,7 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
     super(props);
     this.state = {
       selectedCategory: "all categories",
-      isCartSelected: true,
+      isCartSelected: false,
       itemsInCart:[]
     };
   }
@@ -61,8 +61,13 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
 
 
   onCheckOutHandle= async ()=>{
+    const {itemsInCart} = this.state;
+    if(itemsInCart.length <=0){
+      toast.warn("Please add items to you cart");
+      return;
+    }
     const request ={
-      items:this.state.itemsInCart,
+      items:itemsInCart,
       email:cookieHelper.getCookie("email")
     }
     const response = await fetchClient.httpPostWithAuth('/api/checkout',request);

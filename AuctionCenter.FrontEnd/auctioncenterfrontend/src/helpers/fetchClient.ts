@@ -2,7 +2,8 @@ import { toast } from "react-toastify";
 import { cookieHelper } from "./cookieHelper";
 
 class fetchClient {
-  static readonly apiUrl: any = 'https://localhost:44303';
+  static readonly apiUrl: any = 'http://138.0.230.186:4454';
+
 
   static async httpPost(url: string, request: any) {
     return fetch(`${this.apiUrl}${url}`, {

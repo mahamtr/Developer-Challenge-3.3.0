@@ -1,0 +1,15 @@
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.deps.json
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.runtimeconfig.json
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.runtimeconfig.dev.json
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.dll
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.pdb
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Release\netcoreapp3.1\AuctionCenter.CORE.dll
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\bin\Release\netcoreapp3.1\AuctionCenter.CORE.pdb
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.csprojAssemblyReference.cache
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.AssemblyInfoInputs.cache
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.AssemblyInfo.cs
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.csproj.CopyComplete
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.dll
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.pdb
+C:\Users\Administrator\Documents\GitHub\Developer-Challenge-3.3.0\AuctionCenter.BackEnd\AuctionCenter.INFRASTRUCTURE\obj\Release\netcoreapp3.1\AuctionCenter.INFRASTRUCTURE.genruntimeconfig.cache

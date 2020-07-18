@@ -45,11 +45,20 @@ namespace AuctionCenter.CORE.AppServices
 
         public bool VerifyUser(string email, string password)
         {
-            var users = _unitOfWork.Users.GetFiltered(i => i.Email == email.Trim());
-            var user = users.FirstOrDefault();
-            if (user == null) return false;
-            var hashPassword = _hashingAppService.HashPassword(password);
-            return user.Password == hashPassword;
+            try
+            {
+                var users = _unitOfWork.Users.GetFiltered(i => i.Email == email.Trim());
+                var user = users.FirstOrDefault();
+                if (user == null) return false;
+                var hashPassword = _hashingAppService.HashPassword(password);
+                return user.Password == hashPassword;
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            
         }
     }
 }
