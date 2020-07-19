@@ -1,0 +1,12 @@
+.waitControl {
+  background-color: rgba($color: #000, $alpha: .5);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top:0;
+  left:0;
+}
+.absoluteContainer{
+  margin: auto;
+  padding:50vh;
+}

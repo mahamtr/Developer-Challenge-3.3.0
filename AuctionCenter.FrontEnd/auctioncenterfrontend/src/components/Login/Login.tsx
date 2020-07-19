@@ -22,6 +22,10 @@ class Login extends React.Component<ILoginProps, ILoginState> {
   }
 
 
+  handleKeyPress = (event:any) =>{
+    if(event.key === "Enter") this.onHandleSignIn();
+  }
+
   onHandleSignIn = async () => {
     const { email, password } = this.state;
     if (email === "" || password === "") {
@@ -34,10 +38,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     }
     const response = await fetchClient.httpPost("/api/User/login", request)
     if (response.errors) {
-      for (const error in response.errors) {
-        toast.warn(`${response.errors[error]}`)
-      }
-      this.clearPassword()
+      this.handleValidationErrors(response);
       return
     }
     if (response.status === 401) {
@@ -48,12 +49,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       return
     }
     if (response.token) {
-      const tokenExpiration = new Date()
-      tokenExpiration.setMinutes(tokenExpiration.getMinutes() + (Number(response.expires) - 5))
-      document.cookie = `token=${response.token};expires=${tokenExpiration.toUTCString()}`
-      document.cookie = `email=${email};expires=${tokenExpiration.toUTCString()}`
-      this.props.history.push('/SaleCenter')
-      toast.success("Welcome")
+      this.handleSuccessAuth(response, email);
     }
 
   }
@@ -71,11 +67,7 @@ class Login extends React.Component<ILoginProps, ILoginState> {
     }
     const response = await fetchClient.httpPost("/api/User/register", request)
     if (response.errors) {
-      for (const error in response.errors) {
-        toast.warn(`${response.errors[error]}`)
-      }
-      this.clearPassword()
-
+      this.handleValidationErrors(response);
       return
     }
     if (response.status === 401) {
@@ -84,14 +76,29 @@ class Login extends React.Component<ILoginProps, ILoginState> {
       return
     }
     if (response.token) {
-      const tokenExpiration = new Date()
-      tokenExpiration.setMinutes(tokenExpiration.getMinutes() + (Number(response.expires) - 5))
-      document.cookie = `token=${response.token};expires=${tokenExpiration.toUTCString()}`
-      document.cookie = `email=${email};expires=${tokenExpiration.toUTCString()}`
-      this.props.history.push('/SaleCenter')
-      toast.success("Welcome")
+      this.handleSuccessAuth(response, email);
     }
 
+  }
+
+  private handleSuccessAuth(response: any, email: string) {
+    this.saveCookies(response, email);
+    this.props.history.push('/SaleCenter');
+    toast.success("Welcome");
+  }
+
+  private saveCookies(response: any, email: string) {
+    const tokenExpiration = new Date();
+    tokenExpiration.setMinutes(tokenExpiration.getMinutes() + (Number(response.expires) - 5));
+    document.cookie = `token=${response.token};expires=${tokenExpiration.toUTCString()}`;
+    document.cookie = `email=${email};expires=${tokenExpiration.toUTCString()}`;
+  }
+
+  private handleValidationErrors(response: any) {
+    for (const error in response.errors) {
+      toast.warn(`${response.errors[error]}`);
+    }
+    this.clearPassword();
   }
 
   clearPassword() {
@@ -126,12 +133,12 @@ class Login extends React.Component<ILoginProps, ILoginState> {
 
               <FormGroup >
                 <FormLabel>Email address</FormLabel>
-                <FormControl type="email" placeholder="Email" value={email} onChange={this.onHandleChangeEmail} />
+                <FormControl type="email" placeholder="Email" value={email} onKeyPress={this.handleKeyPress} onChange={this.onHandleChangeEmail} />
                 <FormText >
                   We will send you information about your purchases to this email
     </FormText>
                 <FormLabel>Password</FormLabel>
-                <FormControl type="password" placeholder="Password" value={password} onChange={this.onHandleChangePassword} />
+                <FormControl type="password" placeholder="Password" value={password} onKeyPress={this.handleKeyPress} onChange={this.onHandleChangePassword} />
               </FormGroup>
 
               <ButtonGroup className="mb-2">

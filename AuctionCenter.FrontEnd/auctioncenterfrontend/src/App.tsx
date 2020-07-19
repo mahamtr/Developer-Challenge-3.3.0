@@ -3,9 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Login from './components/Login/Login';
 import SaleCenter from './components/SaleCenter/SaleCenter';
+import {WaitControl} from './components/WaitControl/WaitControl';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 
 
@@ -34,8 +34,8 @@ function App() {
           </Route>
         </Switch>
       </Router>
+      <WaitControl/>
     </div>
   );
 }
-
 export default App;
