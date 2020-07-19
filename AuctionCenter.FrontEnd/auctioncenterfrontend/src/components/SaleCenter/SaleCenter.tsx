@@ -55,7 +55,6 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
       this.setState({
         itemsInCart :itemsInCart
       })
-      return
     }
   }  
 
@@ -70,7 +69,7 @@ class SaleCenter extends React.Component<ISaleCenterProps, ISaleCenterState> {
       items:itemsInCart,
       email:cookieHelper.getCookie("email")
     }
-    const response = await fetchClient.httpPostWithAuth('/api/checkout',request);
+    await fetchClient.httpPostWithAuth('/api/checkout',request);
     this.setState({
       itemsInCart:[]
     })

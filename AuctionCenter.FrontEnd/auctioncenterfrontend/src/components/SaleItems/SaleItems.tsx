@@ -4,7 +4,6 @@ import { ISaleItemsProps } from './ISaleItemsProps';
 import styles from './SaleItems.module.scss';
 import { fetchClient } from '../../helpers/fetchClient';
 import { Card, Button, Row, Col } from 'react-bootstrap';
-import { toast } from 'react-toastify';
 
 class SaleItems extends React.Component<ISaleItemsProps, ISaleItemsState> {
   constructor(props: any) {
